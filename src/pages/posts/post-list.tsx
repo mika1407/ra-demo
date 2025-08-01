@@ -7,25 +7,17 @@ const PostPanel = () => {
 
 const PostList = () => (
     <List>
-        <Datagrid expand={<PostPanel />}
-        sx={{
-            '.RaDatagrid-headerCell': {
-                padding: '16px'
-            }
-        }}>
-        {/* <DataTable>
-            <DataTable.Col source="userId">
-            </DataTable.Col> */}
-            {/* <DataTable.Col source="id" />
-            <DataTable.Col source="title" />
-            <DataTable.Col source="body" /> */}
-        
+        <Datagrid 
+            expand={<PostPanel />}
+            sx={{
+                '.RaDatagrid-headerCell': {
+                    padding: '16px'
+                }
+            }}>       
             <TextField source="id" />
             <TextField  source="title" label="Post Title"/>
             <FunctionField label="Excerpt" render={(record) => `${record.body.substring(0, 50)}...`} />
             <ReferenceField source="userId" reference="users" />
-
-        {/* </DataTable> */}
         </Datagrid>
     </List>
 );
