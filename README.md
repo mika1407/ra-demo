@@ -1,4 +1,4 @@
-# ra-demo
+# react-admin demo program
 
 ## Installation
 
