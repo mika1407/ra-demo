@@ -1,4 +1,4 @@
-import { Datagrid, List, ReferenceField, TextField, FunctionField, useRecordContext } from 'react-admin';
+import { Datagrid, List, ReferenceField, TextField, FunctionField, useRecordContext, EditButton } from 'react-admin';
 
 const PostPanel = () => {
     const record = useRecordContext();
@@ -18,6 +18,7 @@ const PostList = () => (
             <TextField  source="title" label="Post Title"/>
             <FunctionField label="Excerpt" render={(record) => `${record.body.substring(0, 50)}...`} />
             <ReferenceField source="userId" reference="users" />
+            <EditButton />
         </Datagrid>
     </List>
 );
