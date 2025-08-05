@@ -1,12 +1,19 @@
-import { Datagrid, List, ReferenceField, TextField, FunctionField, useRecordContext, EditButton } from 'react-admin';
+import { Datagrid, List, ReferenceField, TextField, FunctionField, 
+        useRecordContext, EditButton, TextInput, ReferenceInput } from 'react-admin';
 
 const PostPanel = () => {
     const record = useRecordContext();
     return <div>{record?.body}</div>
 }
 
-const PostList = () => (
-    <List>
+const PostList = () => {
+    const postFilters = [
+        <TextInput source='q' label="Search" alwaysOn />,
+        <ReferenceInput source='userId' label="User" reference='users' />
+    ];
+
+    return (
+    <List filters={postFilters}>
         <Datagrid 
             expand={<PostPanel />}
             sx={{
@@ -21,6 +28,7 @@ const PostList = () => (
             <EditButton />
         </Datagrid>
     </List>
-);
+    );
+}
 
 export default PostList;
