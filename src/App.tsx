@@ -10,9 +10,10 @@ import UserShow from './pages/users/user-show';
 import ArticleIcon from '@mui/icons-material/Article';
 import PersonIcon from '@mui/icons-material/Person';
 import { HomePage } from './pages/homepage';
+import { authProvider } from './authProvider';
 
 export const App = () => (
-    <Admin layout={Layout} dataProvider={dataProvider} dashboard={HomePage}>
+    <Admin layout={Layout} dataProvider={dataProvider} dashboard={HomePage} authProvider={authProvider} >
         <Resource icon={ArticleIcon} name="posts" list={PostList} show={PostShow} edit={PostEdit} create={PostCreate}/>
         <Resource icon={PersonIcon} name="users" list={UserList} show={UserShow}/>
     </Admin>
